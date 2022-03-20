@@ -129,10 +129,10 @@ for ar in range(1,cicliar+1):
             a+=1
         tc.update_stat(match[tc],match[tf])
         tf.update_stat(match[tf],match[tc])
-        # print(f"{tc.nome} vs {tf.nome} = {match[tc]} - {match[tf]}")
-        # if p==(nsquadre/2) :
-        #     print("-------")
-        #     p=0
+        print(f"{tc.nome} vs {tf.nome} = {match[tc]} - {match[tf]}")
+        if p==(nsquadre/2) :
+           print("-------")
+           p=0
 
 
 classifica=sorted(t, key=lambda x: x.punti,reverse=True)
