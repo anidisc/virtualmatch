@@ -143,8 +143,6 @@ classifica=sorted(t, key=lambda x: x.punti,reverse=True)
 tabc=[[t.nome,t.punti,t.pg,t.vittorie,t.pareggi,t.sconfitte,t.gf,t.gs,t.difr,t.statoforma]for t in classifica]
 tabstat=[[t.nome,round((t.punti/t.pg),2),int(t.over05/t.pg*100),int(t.over15/t.pg*100),int(t.over25/t.pg*100),int(t.over35/t.pg*100),int(t.altro/t.pg*100),int(t.goal/t.pg*100),int(t.nogoal/t.pg*100)]for t in classifica]
             
-# for team in classifica:
-#     print(f"SQ: {team.nome} -  PUNTI:{team.punti}  - G:{team.pg} - V:{team.vittorie} - P:{team.pareggi} - S:{team.sconfitte} - GF:{team.gf} - GS:{team.gs} - DIFR:{team.difr} - SF:{team.statoforma} ")
 #stampa classifoca
 print("\n****** CLASSIFICA ******\n")
 print(tabulate(tabc,headers=["Sqaudra","PT","G","V","P","S","GOL F","GOL S","D.RETI","ST.FORMA %"],tablefmt="github"))
