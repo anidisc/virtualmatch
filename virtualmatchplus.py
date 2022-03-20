@@ -1,5 +1,7 @@
 import random as R
 from random import shuffle
+from tabulate import tabulate
+
 
 #definire classe Squadra
 class Squadra:
@@ -93,7 +95,8 @@ def championship(lista):
 
 
 #corpo del programma
-nsquadre=20
+#definire parametri di simulazione
+nsquadre=10
 nazioni=7
 cicliar=2
 
@@ -136,23 +139,14 @@ for ar in range(1,cicliar+1):
 
 
 classifica=sorted(t, key=lambda x: x.punti,reverse=True)
+#crea tabella stampabile della classifica
+tabc=[[t.nome,t.punti,t.pg,t.vittorie,t.pareggi,t.sconfitte,t.gf,t.gs,t.difr,t.statoforma]for t in classifica]
+tabstat=[[t.nome,round((t.punti/t.pg),2),int(t.over05/t.pg*100),int(t.over15/t.pg*100),int(t.over25/t.pg*100),int(t.over35/t.pg*100),int(t.altro/t.pg*100),int(t.goal/t.pg*100),int(t.nogoal/t.pg*100)]for t in classifica]
             
-for team in classifica:
-    print(f"SQ: {team.nome} -  PUNTI:{team.punti}  - G:{team.pg} - V:{team.vittorie} - P:{team.pareggi} - S:{team.sconfitte} - GF:{team.gf} - GS:{team.gs} - DIFR:{team.difr} - SF:{team.statoforma} ")
-
-
-# classifica=sorted(t, key=lambda x: x.punti,reverse=True)
-print("-")            
-for team in classifica:
-   print(f"{team.nome} - MP: {round((team.punti/team.pg),2)} - MG: {round(team.gf/team.pg,2)} "
-         f" - OV0.5:{int(team.over05/team.pg*100)}%"
-         f" - OV1.5:{int(team.over15/team.pg*100)}%"
-         f" - OV2.5:{int(team.over25/team.pg*100)}%"
-         f" - OV3.5:{int(team.over35/team.pg*100)}%"
-         f" - ALTRO:{int(team.altro/team.pg*100)}%"
-         f" - GG:{int(team.goal/team.pg*100)}%"
-         f" - NG:{int(team.nogoal/team.pg*100)}%")
-
-
-
-#print(probgol(12,4,9,15))
+# for team in classifica:
+#     print(f"SQ: {team.nome} -  PUNTI:{team.punti}  - G:{team.pg} - V:{team.vittorie} - P:{team.pareggi} - S:{team.sconfitte} - GF:{team.gf} - GS:{team.gs} - DIFR:{team.difr} - SF:{team.statoforma} ")
+#stampa classifoca
+print(tabulate(tabc,headers=["Sqaudra","PT","G","V","P","S","GOL F","GOL S","D.RETI","ST.FORMA %"],tablefmt="github"))
+#stampa statistiche squadre
+print("-")
+print(tabulate(tabstat,headers=["SQUADRA","MED PT","MED G","OV0.5 %","OV1.5 %","OV2.5 %","OV3.5 %","GG %","NG %"],tablefmt="pretty"))
