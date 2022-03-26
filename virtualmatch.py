@@ -1,11 +1,6 @@
 import random as r
 from tabulate import tabulate
 
-class Squadra1:
-    def __init__(self,giocatore):
-        self.x=giocatore
-
-    
 
 #nuemro di partite
 n=100
