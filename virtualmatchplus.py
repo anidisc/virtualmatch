@@ -96,8 +96,8 @@ def championship(lista):
 
 #corpo del programma
 #definire parametri di simulazione
-nsquadre=10
-nazioni=7
+nsquadre=12
+nazioni=8
 cicliar=2
 
 
